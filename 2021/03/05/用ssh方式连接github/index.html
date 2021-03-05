@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ssh连接githubPage | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,Kaiji's Blog" />
+  
+  <meta name="description" content="关于ssh使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 GitHub，而无需在每次访问时都提供用户名和个人访问令牌。 用git生成ssh秘钥pairs $ ssh-keygen -t ed25519 -C &quot;username@github.com&quot;,这一条命令就会在.ssh文件夹中生成两个秘钥（带pub后缀的是公钥，另一个是私钥）。 之后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh连接githubPage">
+<meta property="og:url" content="http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于ssh使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 GitHub，而无需在每次访问时都提供用户名和个人访问令牌。 用git生成ssh秘钥pairs $ ssh-keygen -t ed25519 -C &quot;username@github.com&quot;,这一条命令就会在.ssh文件夹中生成两个秘钥（带pub后缀的是公钥，另一个是私钥）。 之后">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-05T02:43:13.977Z">
+<meta property="article:modified_time" content="2021-03-05T03:09:33.803Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Kaiji&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Kaiji&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Kaiji" target="_blank" href="//Kaiji.top">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/gsserver">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/gsservertop">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-用ssh方式连接github" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      ssh连接githubPage
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-03-05
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><strong>关于ssh</strong><br><em>使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 GitHub，而无需在每次访问时都提供用户名和个人访问令牌。</em></p>
+<h3 id="用git生成ssh秘钥pairs"><a href="#用git生成ssh秘钥pairs" class="headerlink" title="用git生成ssh秘钥pairs"></a>用git生成ssh秘钥pairs</h3><ul>
+<li><code>$ ssh-keygen -t ed25519 -C &quot;username@github.com&quot;</code>,这一条命令就会在.ssh文件夹中生成两个秘钥（带pub后缀的是公钥，另一个是私钥）。</li>
+<li>之后和github连接了之后，.ssh文件夹中还会生成一个<code>kown_hosts</code>文件。  <h3 id="ssh私钥添加到SSH-agent中"><a href="#ssh私钥添加到SSH-agent中" class="headerlink" title="ssh私钥添加到SSH-agent中"></a>ssh私钥添加到SSH-agent中</h3></li>
+<li>启动ssh-agent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; start the ssh-agent in the background</span><br><span class="line">$ eval &#96;ssh-agent -s&#96;</span><br><span class="line">&gt; Agent pid 59566</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">- 将私钥添加到agent中  </span><br></pre></td></tr></table></figure>
+$ ssh-add ~/.ssh/id_ed25519<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这样每次都要开agent并注入私钥，并不比直接输入账号密码简单，所以之后有一个方法，在开机就把私钥注入到agent中，免得手动配置了。</span><br><span class="line">### ssh公钥新增到github中</span><br><span class="line">- 打开github-&gt;点击头像-&gt;settings-&gt;SSH &amp; GPG keys  </span><br><span class="line">- 复制.ssh中公钥内容，复制到ssh key中并保存。  </span><br><span class="line">- 测试：&#96;ssh -vT git@github.com&#96;</span><br><span class="line">### 修改root下_config.yml</span><br><span class="line">将_config.yml文件中https方式改成ssh方式 </span><br></pre></td></tr></table></figure>
+deploy:<br>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><username>/<project><h1 id="example-https-github-com-hexojs-hexojs-github-io-https方式"><a href="#example-https-github-com-hexojs-hexojs-github-io-https方式" class="headerlink" title="example, https://github.com/hexojs/hexojs.github.io //https方式"></a>example, <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexojs.github.io">https://github.com/hexojs/hexojs.github.io</a> //https方式</h1><h1 id="example-103-105-x74-64-103-105-x74-x68-117-x62-46-99-x6f-x6d-username-username-github-io-git-ssh方式"><a href="#example-103-105-x74-64-103-105-x74-x68-117-x62-46-99-x6f-x6d-username-username-github-io-git-ssh方式" class="headerlink" title="example, &#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;:username/username.github.io.git //ssh方式"></a>example, <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;</a>:username/username.github.io.git //ssh方式</h1>branch: master<br>```<h3 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h3><h3 id="优化ssh-agent配置"><a href="#优化ssh-agent配置" class="headerlink" title="优化ssh-agent配置"></a>优化ssh-agent配置</h3></li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年03月05日 11:09</p>
+        <p>原始链接： <a class="post-url" href="/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/" title="ssh连接githubPage">http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/&title=《ssh连接githubPage》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/&title=《ssh连接githubPage》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ssh连接githubPage》 — Hexo&url=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2021/03/05/%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5github/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%A8git%E7%94%9F%E6%88%90ssh%E7%A7%98%E9%92%A5pairs"><span class="post-toc-text">用git生成ssh秘钥pairs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ssh%E7%A7%81%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0SSH-agent%E4%B8%AD"><span class="post-toc-text">ssh私钥添加到SSH-agent中</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#example-https-github-com-hexojs-hexojs-github-io-https%E6%96%B9%E5%BC%8F"><span class="post-toc-text">example, https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexojs.github.io &#x2F;&#x2F;https方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#example-103-105-x74-64-103-105-x74-x68-117-x62-46-99-x6f-x6d-username-username-github-io-git-ssh%E6%96%B9%E5%BC%8F"><span class="post-toc-text">example, &amp;#103;&amp;#105;&amp;#x74;&amp;#64;&amp;#103;&amp;#105;&amp;#x74;&amp;#x68;&amp;#117;&amp;#x62;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;:username&#x2F;username.github.io.git &#x2F;&#x2F;ssh方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%88%90%E5%8A%9F"><span class="post-toc-text">成功</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E5%8C%96ssh-agent%E9%85%8D%E7%BD%AE"><span class="post-toc-text">优化ssh-agent配置</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/05/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">用hexo配合github page搭建博客</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
