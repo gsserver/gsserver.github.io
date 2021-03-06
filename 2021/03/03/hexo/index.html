@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="MinHow,Kaiji's Blog" />
   
-  <meta name="description" content="git svn cvs maven1.git，svn，cvs都是版本控制工具2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。3.cvs比svn老一些。4.maven和其他三个配合使用，主要作用是作为jar包仓库。&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;You have not concluded your merge">
+  <meta name="description" content="git svn cvs maven1.git，svn，cvs都是版本控制工具2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。3.cvs比svn老一些。4.maven和其他三个配合使用，主要作用是作为jar包仓库。5.git和svn的区别这篇博文些的不错 https:&#x2F;&#x2F;segmentfault.com&#x2F;a&#x2F;1190000016865867">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo">
 <meta property="og:url" content="http://example.com/2021/03/03/hexo/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="git svn cvs maven1.git，svn，cvs都是版本控制工具2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。3.cvs比svn老一些。4.maven和其他三个配合使用，主要作用是作为jar包仓库。&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;You have not concluded your merge">
+<meta property="og:description" content="git svn cvs maven1.git，svn，cvs都是版本控制工具2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。3.cvs比svn老一些。4.maven和其他三个配合使用，主要作用是作为jar包仓库。5.git和svn的区别这篇博文些的不错 https:&#x2F;&#x2F;segmentfault.com&#x2F;a&#x2F;1190000016865867">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-03T01:32:02.000Z">
-<meta property="article:modified_time" content="2021-03-03T02:04:08.030Z">
+<meta property="article:modified_time" content="2021-03-06T03:22:53.972Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -140,7 +140,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>git svn cvs maven<br>1.git，svn，cvs都是版本控制工具<br>2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。<br>3.cvs比svn老一些。<br>4.maven和其他三个配合使用，主要作用是作为jar包仓库。<br>==============================<br>You have not concluded your merge (MERGE_HEAD exists).<br>Please, commit your changes before you can merge.</p>
+            <p>git svn cvs maven<br>1.git，svn，cvs都是版本控制工具<br>2.git是分布式，每台安装了git的client都是server。svn和cvs是集中式，需要中央服务器。<br>3.cvs比svn老一些。<br>4.maven和其他三个配合使用，主要作用是作为jar包仓库。<br>5.git和svn的区别这篇博文些的不错 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016865867">https://segmentfault.com/a/1190000016865867</a><br>==============================<br>You have not concluded your merge (MERGE_HEAD exists).<br>Please, commit your changes before you can merge.</p>
 <p>OK. The problem is your previous pull failed to merge automatically and went to conflict state. And the conflict wasn’t resolved properly before the next pull.<br>git pull<br>git push<br>git add/rm [file]<br>git commit<br>git merge –abort<br>git reset –merge<br>git status<br>===============================<br>hexo g<br>hexo s<br>hexo deploy<br>============================<br>i  esc   :wq<br>======================<br>Debug 通常称为调试版本，它包含调试信息，并且不作任何优化，便于程序员调试程序。<br>Release 称为发布版本，它往往是进行了各种优化，使得程序在代码大小和运行速度上都是最优的，以便用户很好地使用。<br>================<br>Git错误提示之：fatal: Not a git repository (or any of the parent directories): .git<br>产生原因：一般是没有初始化git本地版本管理仓库，所以无法执行git命令</p>
 <p>解决方法：操作之前执行以下命令行: git init<br>运行git status查看<br>===============<br>Unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/user_name/repository_name/%E2%80%99">https://github.com/user_name/repository_name/’</a>: OpenSSL SSL_read: Connection was reset, errno 10054</p>
 <p>网上看到很多说法，其实你之前配置没问题的话我相信一般是没有问题的，你照着他们说的去做也未必能解决问题。当时查资料倒是看到一个有趣的说法，有关于自己的网络连接，我觉得这种思考是很好的，都可以提供大家的参考。</p>
@@ -150,11 +150,10 @@
 <p>只要在source 目录添加一个新文件CNAME就好</p>
 <p>CNAME –不带任何后缀，这就是全称，里面写的是你的域名</p>
 <p>然后就ok了。</p>
-<p>怎么push都不用再去GitHub Pages设置了</p>
-
+<h1 id="怎么push都不用再去GitHub-Pages设置了"><a href="#怎么push都不用再去GitHub-Pages设置了" class="headerlink" title="怎么push都不用再去GitHub Pages设置了"></a>怎么push都不用再去GitHub Pages设置了</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年03月03日 10:04</p>
+        <p>最后更新： 2021年03月06日 11:22</p>
         <p>原始链接： <a class="post-url" href="/2021/03/03/hexo/" title="hexo">http://example.com/2021/03/03/hexo/</a></p>
         <footer>
             <a href="http://example.com">
@@ -265,7 +264,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%89%80%E4%BB%A5%E5%A4%84%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95%E5%B0%B1%E6%98%AF%E5%81%9A%E4%B8%80%E4%B8%8Bgit-pull-origin-master-%E2%80%93allow-unrelated-histories%EF%BC%8C%E7%84%B6%E5%90%8E%E5%86%8Dpush%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="post-toc-text">所以处理的方法就是做一下git pull origin master –allow-unrelated-histories，然后再push即可。</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%89%80%E4%BB%A5%E5%A4%84%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95%E5%B0%B1%E6%98%AF%E5%81%9A%E4%B8%80%E4%B8%8Bgit-pull-origin-master-%E2%80%93allow-unrelated-histories%EF%BC%8C%E7%84%B6%E5%90%8E%E5%86%8Dpush%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="post-toc-text">所以处理的方法就是做一下git pull origin master –allow-unrelated-histories，然后再push即可。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%8E%E4%B9%88push%E9%83%BD%E4%B8%8D%E7%94%A8%E5%86%8D%E5%8E%BBGitHub-Pages%E8%AE%BE%E7%BD%AE%E4%BA%86"><span class="post-toc-text">怎么push都不用再去GitHub Pages设置了</span></a></li></ol>
         </nav>
     </aside>
     
