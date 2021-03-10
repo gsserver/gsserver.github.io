@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2021/03/04/MarkDown/</loc>
     
-    <lastmod>2021-03-06</lastmod>
+    <lastmod>2021-03-10</lastmod>
     
   </url>
   
@@ -29,17 +29,10 @@
     
   </url>
   
-  <url>
-    <loc>http://example.com/2021/03/03/hello-world/</loc>
-    
-    <lastmod>2021-03-02</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2021-03-06</lastmod>
+    <lastmod>2021-03-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
